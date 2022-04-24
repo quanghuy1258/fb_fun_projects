@@ -13,7 +13,7 @@ login(credential, (err, api) => {
       while (true) {
         api.sendTypingIndicator(someoneID);
         console.log(Date());
-        await new Promise(resolve => setTimeout(resolve, 2000));
+        await new Promise(resolve => setTimeout(resolve, 25000));
       }
     }
     loop();
