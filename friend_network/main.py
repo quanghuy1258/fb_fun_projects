@@ -43,6 +43,9 @@ def get_profile_friends(uid):
     block_sign = "You’re Temporarily Blocked"
     if block_sign in response.text:
       raise Exception(block_sign)
+    block_sign = "You Can't Use This Feature Right Now"
+    if block_sign in response.text:
+      raise Exception(block_sign)
 
     sel = Selector(response)
     isMore = False
