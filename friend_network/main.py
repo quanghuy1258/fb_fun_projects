@@ -1,4 +1,4 @@
-import json, requests, time
+import json, requests, time, random
 
 from urllib import parse
 from scrapy.selector import Selector
@@ -38,7 +38,10 @@ def get_profile_friends(uid):
   isMore = True
   ret = []
   while isMore:
-    time.sleep(20)
+    r = random.randint(120, 240)
+    print("INFO: Waiting for {} seconds ...".format(r))
+    time.sleep(r)
+    print("INFO: Resume ...")
     response = requests.get(friend_url, headers=headers, cookies=cookies)
     block_sign = "You’re Temporarily Blocked"
     if block_sign in response.text:
